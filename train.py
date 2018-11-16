@@ -119,7 +119,6 @@ print("Loading the data ...")
 train_input_names,train_output_names, val_input_names, val_output_names, test_input_names, test_output_names = utils.prepare_data(dataset_dir=args.dataset)
 
 
-
 print("\n***** Begin training *****")
 print("Dataset -->", args.dataset)
 print("Model -->", args.model)
@@ -177,7 +176,6 @@ for epoch in range(args.epoch_start_i, args.num_epochs):
 
             with tf.device('/cpu:0'):
                 input_image, output_image = data_augmentation(input_image, output_image)
-
 
                 # Prep the data. Make sure the labels are in one-hot format
                 input_image = np.float32(input_image) / 255.0
