@@ -109,7 +109,7 @@ if init_fn is not None:
     init_fn(sess)
 
 # Load a previous checkpoint if desired
-model_checkpoint_name = args.dir + "latest_model_" + args.model + "_" + args.dataset + ".ckpt"
+model_checkpoint_name = args.dir + "/latest_model_" + args.model + "_" + args.dataset + ".ckpt"
 if args.continue_training:
     print('Loaded latest model checkpoint')
     saver.restore(sess, model_checkpoint_name)
@@ -213,7 +213,7 @@ for epoch in range(args.epoch_start_i, args.num_epochs):
 
     # Save latest checkpoint to same file name
     print("Saving latest checkpoint")
-    saver.save(sess,model_checkpoint_name)
+    saver.save(sess, model_checkpoint_name)
 
     if val_indices != 0 and epoch % args.checkpoint_step == 0:
         print("Saving checkpoint for this epoch")
