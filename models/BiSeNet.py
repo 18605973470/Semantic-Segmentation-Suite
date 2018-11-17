@@ -59,7 +59,7 @@ def FeatureFusionModule(input_1, input_2, n_filters):
     return net
 
 
-def build_bisenet(inputs, num_classes, preset_model='BiSeNet', frontend="ResNet101", weight_decay=1e-5, is_training=True, pretrained_dir="models"):
+def build_bisenet(inputs, num_classes, preset_model='BiSeNet', frontend="ResNet101", weight_decay=1e-5, is_training=True, pretrained_dir="pretrained_frontend_weights"):
     """
     Builds the BiSeNet model. 
 

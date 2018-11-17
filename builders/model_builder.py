@@ -29,7 +29,7 @@ def download_checkpoints(model_name):
 
 
 
-def build_model(model_name, net_input, num_classes, crop_width, crop_height, frontend="ResNet101", is_training=True):
+def build_model(model_name, net_input, num_classes, crop_width, crop_height, pretrained_frontend_weights_dir="pretrained_frontend_weights", frontend="ResNet101", is_training=True):
 	# Get the selected model. 
 	# Some of them require pre-trained ResNet
 
@@ -41,15 +41,15 @@ def build_model(model_name, net_input, num_classes, crop_width, crop_height, fro
 	if frontend not in SUPPORTED_FRONTENDS:
 		raise ValueError("The frontend you selected is not supported. The following models are currently supported: {0}".format(SUPPORTED_FRONTENDS))
 
-	if "ResNet50" == frontend and not os.path.isfile("models/resnet_v2_50.ckpt"):
+	if "ResNet50" == frontend and not os.path.isfile("%s/resnet_v2_50.ckpt" % (pretrained_frontend_weights_dir)):
 	    download_checkpoints("ResNet50")
-	if "ResNet101" == frontend and not os.path.isfile("models/resnet_v2_101.ckpt"):
+	if "ResNet101" == frontend and not os.path.isfile("%s/resnet_v2_101.ckpt" % (pretrained_frontend_weights_dir)):
 	    download_checkpoints("ResNet101")
-	if "ResNet152" == frontend and not os.path.isfile("models/resnet_v2_152.ckpt"):
+	if "ResNet152" == frontend and not os.path.isfile("%s/resnet_v2_152.ckpt" % (pretrained_frontend_weights_dir)):
 	    download_checkpoints("ResNet152")
-	if "MobileNetV2" == frontend and not os.path.isfile("models/mobilenet_v2.ckpt.data-00000-of-00001"):
+	if "MobileNetV2" == frontend and not os.path.isfile("%s/mobilenet_v2.ckpt.data-00000-of-00001" % (pretrained_frontend_weights_dir)):
 	    download_checkpoints("MobileNetV2")
-	if "InceptionV4" == frontend and not os.path.isfile("models/inception_v4.ckpt"):
+	if "InceptionV4" == frontend and not os.path.isfile("%s/inception_v4.ckpt" % (pretrained_frontend_weights_dir)):
 	    download_checkpoints("InceptionV4") 
 
 	network = None
