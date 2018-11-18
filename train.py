@@ -151,8 +151,8 @@ random.seed(16)
 val_indices=random.sample(range(0,len(val_input_names)),num_vals)
 
 # Create directories if needed
-if not os.path.isdir("%s" % (args.dir)):
-    os.makedirs("%s" % (args.dir))
+# if not os.path.isdir("%s" % (args.dir)):
+#     os.makedirs("%s" % (args.dir))
 
 # Do the training here
 for epoch in range(args.epoch_start_i, args.num_epochs):
